@@ -97,20 +97,37 @@ def createreport(request):
 #     return render(request, "welcome.html", {'e':name})
 
 def checkreport(request):
-    return HttpResponse("hai")
+  
 #     idToken = request.session['uid']
 #     a = authe.get_account_info(idToken)
 #     a = a['users']
 #     a = a[0]
 #     a = a['localId']
+    
+   timestamps = db.child('data').shallow().get().val()
+   list_time=[]
+   for i in timestamps:
+       list_time.append(i)
+   
+   list_time.sort(reverse=True)
 
-#     timestamps = db.child('users').child(a).child('reports').shallow().get().val()
-#     list_time=[]
-#     for i in timestamps:
-#         list_time.append(i)
+   thumbs = []
+   lats = []
+   lngs = []
+   for i in list_time:
+       thumb = db.child('data').child(i).child('detail').get().val()
+       thumbs.append(thumb)
+       lat = db.child('data').child(i).child('lat').get().val()
+       lng = db.child('data').child(i).child('lng').get().val()
+       lats.append(lat)
+       lngs.append(lng)
 
-#     list_time.sort(reverse=True)
 
+   reports = zip(list_time,thumbs,lats,lngs)
+   print(reports)
+
+   return render(request, "checkreport.html",{'reports':reports})
+   
 
 #     works = []
 

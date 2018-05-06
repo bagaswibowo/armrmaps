@@ -1,10 +1,7 @@
-{% extends 'base_layout.html' %}
+{% extends 'base_layout.html' %} {% block content %}
+<h2>Reports</h2>
+{% for time,report,lat,lng in reports %}
+<h3> Task : {{report}} </h3>
+<p>Location : {{lat}}. {{lng}}</p>
 
-{% block content %}
-  <h2>Reports</h2>
-  {% for time,date,work in posts %}
-  <a href="{% url 'reportdetail/' time=time %}">  <h3> Task : {{work}} </h3></a>
-
-  <p> Date : {{date}} </p><br>
-  {% endfor %}
-{% endblock %}
+<p> Date : {{time}} </p><br> {% endfor %} {% endblock %}
