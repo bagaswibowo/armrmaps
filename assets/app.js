@@ -7,4 +7,15 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-console.log("hai")
+//console.log("hai")
+
+//checkreport
+
+
+
+const dbRefObject = firebase.database().ref().child("data");
+
+dbRefObject.on('child_added', snap => {
+    console.log(snap.val());
+
+});

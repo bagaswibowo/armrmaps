@@ -1,20 +1,6 @@
 {% extends "base_layout.html" %} {% block content %}
 <div class="wrapper">
 
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyC5rT7DmUVrs-dlECDMXBcfMKfE7ItHRZI",
-            authDomain: "maps-1ca28.firebaseapp.com",
-            databaseURL: "https://maps-1ca28.firebaseio.com",
-            projectId: "maps-1ca28",
-            storageBucket: "maps-1ca28.appspot.com",
-            messagingSenderId: "43370329320"
-        };
-        firebase.initializeApp(config);
-    </script>
-
     <div id="map">
         <script>
             function initMap() {

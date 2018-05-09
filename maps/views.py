@@ -111,19 +111,19 @@ def checkreport(request):
    
    list_time.sort(reverse=True)
 
-   thumbs = []
+   damages = []
    lats = []
    lngs = []
    for i in list_time:
-       thumb = db.child('data').child(i).child('detail').get().val()
-       thumbs.append(thumb)
+       damage = db.child('data').child(i).child('detail').get().val()
+       damages.append(damage)
        lat = db.child('data').child(i).child('lat').get().val()
        lng = db.child('data').child(i).child('lng').get().val()
        lats.append(lat)
        lngs.append(lng)
 
 
-   reports = zip(list_time,thumbs,lats,lngs)
+   reports = zip(list_time,damages,lats,lngs)
    print(reports)
 
    return render(request, "checkreport.html",{'reports':reports})
