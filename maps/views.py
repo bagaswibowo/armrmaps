@@ -47,6 +47,9 @@ def logout_view(request):
 
 def signup(request):
     return render(request, 'signup.html')
+    
+def stream(request):
+    return render(request, 'stream.html')
 
 def postsignup(request):
     name = request.POST.get('fullname')

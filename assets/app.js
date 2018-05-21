@@ -1,14 +1,14 @@
 //side bar
-function openNav() {
+function toggleNav() {
     if(document.getElementById("mySidenav").style.width === "250px") {
         document.getElementById("mySidenav").style.width = "0px";
+        document.getElementById("mySidenavSpacer").style.width = "0px";
+        document.getElementById("mySidenavSpacer").style.marginRight = "0px";
     } else if (document.getElementById("mySidenav").style.width = "0px") {
         document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenavSpacer").style.width = "250px";
+        document.getElementById("mySidenavSpacer").style.marginRight = "50px";
     }
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
 }
 
 //console.log("hai")

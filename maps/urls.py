@@ -24,6 +24,7 @@ urlpatterns = [
     path('signup/', views.signup, name="signup"),
     path('createreport/', views.createreport, name="createreport"),
     path('checkreport/', views.checkreport, name="checkreport"),
+    path('stream/', views.stream, name="stream"),
     # re_path(r'^(?P<time>[\w-]+)/$',views.reportdetail, name="detail"),
     path('postlogin/', views.postlogin, name="postlogin"),
     path('postsignup/', views.postsignup, name="postsignup"),
