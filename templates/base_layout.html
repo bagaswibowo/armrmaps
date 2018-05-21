@@ -8,8 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
     </script>
@@ -18,7 +17,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -35,15 +33,12 @@
     <script src="{% static 'app.js' %}"></script>
 
     <nav class="navbar sticky-top navbar-light bg-blue topbar">
-=======
-    <nav style="" class="navbar navbar-light bg-blue topbar">
+        <nav style="" class="navbar navbar-light bg-blue topbar">
+            <span class="responsive-text burger-menu" onclick="openNav()">&#9776; Autonomous Railways Monitoring Robot</span>
 
-
-        <span class="responsive-text burger-menu" onclick="openNav()">&#9776; Autonomous Railways Monitoring Robot</span>
-
+        </nav>
     </nav>
     <div class="sidebar-container">
->>>>>>> 1045c640a50c6359072667bbcaa87379910c1fce
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#">Maps</a>
@@ -56,7 +51,7 @@
                 {% block content %} {% endblock %}
             </div>
         </div>
-        
+
     </div>
 
 </body>
