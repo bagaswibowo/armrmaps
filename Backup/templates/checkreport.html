@@ -1,0 +1,29 @@
+{% extends 'base_layout.html' %} {% block content %}
+<h2>Reports</h2>
+<button style="position: fixed; z-index: 10000000; top: 70px; right: 50px;" class="btn btn-default"><i class="fa fa-redo"></i></button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Date</th>
+            <th>Langitude/Lotitude</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for time,report,lat,lng in reports %}
+        <tr>
+            <td> 1 </td>
+            <td> {{time}} </td>
+            <td> {{lat}}. {{lng}}</td>
+            <td> {{report}} </td>
+            <td>
+                <a href="#" class="btn btn-danger"><i class="fa fa-map-marker-alt"></i></a>
+                <a href="#" class="btn btn-primary"><i class="fa fa-archive"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -106,7 +106,8 @@ def checkreport(request):
 #     a = a['users']
 #     a = a[0]
 #     a = a['localId']
-    
+
+   
    timestamps = db.child('data').shallow().get().val()
    list_time=[]
    for i in timestamps:
@@ -117,6 +118,8 @@ def checkreport(request):
    damages = []
    lats = []
    lngs = []
+   counts = []
+   count = 1
    for i in list_time:
        damage = db.child('data').child(i).child('detail').get().val()
        damages.append(damage)
@@ -124,13 +127,44 @@ def checkreport(request):
        lng = db.child('data').child(i).child('lng').get().val()
        lats.append(lat)
        lngs.append(lng)
+       counts.append(count)
+       count = count+1
 
-
-   reports = zip(list_time,damages,lats,lngs)
-   print(reports)
-
+   reports = zip(counts,list_time,damages,lats,lngs)
    return render(request, "checkreport.html",{'reports':reports})
+
+def archives(request):
+      
+#     idToken = request.session['uid']
+#     a = authe.get_account_info(idToken)
+#     a = a['users']
+#     a = a[0]
+#     a = a['localId']
+    
+   timestamps = db.child('archive').shallow().get().val()
+   list_time=[]
+   for i in timestamps:
+       list_time.append(i)
    
+   list_time.sort(reverse=True)
+
+   damages = []
+   lats = []
+   lngs = []
+   counts = []
+   count = 1
+   for i in list_time:
+       damage = db.child('archive').child(i).child('detail').get().val()
+       damages.append(damage)
+       lat = db.child('archive').child(i).child('lat').get().val()
+       lng = db.child('archive').child(i).child('lng').get().val()
+       lats.append(lat)
+       lngs.append(lng)
+       counts.append(count)
+       count = count+1
+
+   reports = zip(counts,list_time,damages,lats,lngs)
+   return render(request, "checkreport.html",{'reports':reports})
 
 #     works = []
 

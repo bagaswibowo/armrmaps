@@ -4,13 +4,13 @@
     <div id="map">
         <script>
             function initMap() {
-                var uluru = {
+                var coord = {
                     lat: null,
                     lng: null
                 };
                 var position = {
-                    lat: -25,
-                    lng: 131
+                    lat: 7.7896909,
+                    lng: 110.3651141
                 };
                 var map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 4,
@@ -26,18 +26,41 @@
 
                 const dbRefObject = firebase.database().ref().child("data");
                 dbRefObject.on('child_added', snap => {
-                    uluru = snap.val();
-                    var latlng = new google.maps.LatLng(uluru.lat, uluru.lng);
+                    coord = snap.val();
+                    var latlng = new google.maps.LatLng(coord.lat, coord.lng);
                     console.log(snap.val());
-                    return new google.maps.Marker({
-                        position: uluru,
+
+                    var marker = new google.maps.Marker({
+                        position: coord,
                         map: map
                     });
+                    attachSecretMessage(marker, coord.detail);
                 });
 
+                dbRefObject.on('child_changed', snap => {
+                    coord = snap.val();
+                    var latlng = new google.maps.LatLng(coord.lat, coord.lng);
+                    console.log(snap.val());
+
+                    var marker = new google.maps.Marker({
+                        position: coord,
+                        map: map
+                    });
+                    attachSecretMessage(marker, coord.detail);
+                });
+            }
+
+            function attachSecretMessage(marker, secretMessage) {
+                var infowindow = new google.maps.InfoWindow({
+                    content: secretMessage
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(marker.get('map'), marker);
+                });
             }
         </script>
-        
+
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlWXTx0E64uXf39i16Yc4ouIS7EwT1WKY&callback=initMap">
         </script>
     </div>

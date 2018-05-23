@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %} {% block content %}
+<h2>Archives</h2>
+<button style="position: fixed; z-index: 10000000; top: 70px; right: 50px;" class="btn btn-default" onClick="window.location.reload()"><i class="fa fa-redo" ></i></button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Date</th>
+            <th>Langitude/Lotitude</th>
+            <th>Description</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for time,report,lat,lng in reports %}
+        <tr>
+            <td> {[ forloop.counter }}</td>
+            <td> {{time}} </td>
+            <td> {{lat}}. {{lng}}</td>
+            <td> {{report}} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

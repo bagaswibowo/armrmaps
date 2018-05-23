@@ -8,7 +8,6 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -31,14 +30,15 @@
     </script>
     <script src="{% static 'app.js' %}"></script>
     <nav class="navbar sticky-top navbar-light bg-blue topbar">
+        <span class="responsive-text burger-menu" onclick="toggleNav()">&#9776; Autonomous Railways Monitoring Robot</span>
         <div id="mySidenav" class="sidenav">
             <a style="float: right" href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
-            <a href="#">Maps</a>
-            <a href="#">Streaming</a>
-            <a href="">Report</a>
+            <a href="{% url 'home' %}">Maps</a>
+            <a href="{% url 'stream' %}">Streaming</a>
+            <a href="{% url 'checkreport' %}">Report</a>
+            <a href="{% url 'archive' %}">Archive</a>
             <a href="#">Logout</a>
         </div>
-        <span class="responsive-text burger-menu" onclick="toggleNav()">&#9776; Autonomous Railways Monitoring Robot</span>
     </nav>
     <div class="sidebar-container">
         <div id="mySidenavSpacer" class="sidebar-space"></div>
@@ -47,7 +47,6 @@
                 {% block content %} {% endblock %}
             </div>
         </div>
-
     </div>
 
 </body>

@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+      <h2> Welcome {{ e }}
+      <div class="">
+        <button type="button" name="Logout" onclick="location.href='{% url 'logout' %}'">Logout</button>
+      </div>
+      <div class="">
+        <button type="button" name="createReport" onclick="location.href='{% url 'createreport' %}'">Create Report</button>
+        <button type="button" name="checkReport" onclick="location.href='{% url 'checkreport' %}'">Check Report</button>
+{%  endblock %}

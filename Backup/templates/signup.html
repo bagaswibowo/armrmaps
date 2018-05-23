@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+  <h2>Sign Up</h2>
+  <form class="SignForm" action="/postsignup/" method="post">
+    {% csrf_token %}
+    Full Name <input type="text" name="fullname" value="" placeholder="Fullname">
+    Email <input type="email" name="email" value="">
+    Password <input type="password" name="passwd" value="">
+    <input type="submit" name="submit" value="Submit">
+
+  </form>
+{% endblock %}
