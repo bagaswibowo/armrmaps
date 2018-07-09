@@ -1,25 +1,27 @@
 {% extends 'base_layout.html' %} {% block content %}
-<h2>Archives</h2>
+<h2>Routes</h2>
 <button style="position: fixed; z-index: 10000000; top: 70px; right: 50px;" class="btn btn-default" onClick="window.location.reload()"><i class="fa fa-redo" ></i></button>
 <table class="table">
     <thead>
         <tr>
             <th>No</th>
-            <th>Date</th>
-            <th>Langitude/Lotitude</th>
-            <th>Description</th>
-
+            <th>Route</th>
+            <th>Detail</th>
+            <th>Download for APM Planner</th>
         </tr>
     </thead>
     <tbody>
-        {% for counter,time,report,lat,lng in reports %}
         <tr>
-            <td> {{counter}}</td>
-            <td> {{time}} </td>
-            <td> {{lat}}. {{lng}}</td>
-            <td> {{report}} </td>
+            <td> 1 </td>
+            <td> 14-15 </td>
+            <td> Jalur 3 Stasiun Y - Stasiun Z</td>
+
+            <td>
+                <button href="#" class="btn btn-danger">Download</i></button>
+
+            </td>
         </tr>
-        {% endfor %}
+
     </tbody>
 </table>
 {% endblock %}

@@ -51,6 +51,9 @@ def signup(request):
 def stream(request):
     return render(request, 'stream.html')
 
+def route(request):
+   return render(request, 'route.html')
+
 def postsignup(request):
     name = request.POST.get('fullname')
     email = request.POST.get('email')
@@ -164,7 +167,7 @@ def archives(request):
        count = count+1
 
    reports = zip(counts,list_time,damages,lats,lngs)
-   return render(request, "checkreport.html",{'reports':reports})
+   return render(request, "archives.html",{'reports':reports})
 
 #     works = []
 
