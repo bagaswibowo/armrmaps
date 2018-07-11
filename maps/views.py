@@ -113,8 +113,13 @@ def checkreport(request):
    
    timestamps = db.child('data').shallow().get().val()
    list_time=[]
+   list_time_raw=[]
    for i in timestamps:
-       list_time.append(i)
+       fixdate = datetime.fromtimestamp(float(i)).strftime("%H:%m %D")
+       list_time_raw.append(i)
+       list_time.append(fixdate)
+       print(fixdate)
+   
    
    list_time.sort(reverse=True)
 
@@ -123,8 +128,8 @@ def checkreport(request):
    lngs = []
    counts = []
    count = 1
-   for i in list_time:
-       damage = db.child('data').child(i).child('detail').get().val()
+   for i in list_time_raw:
+       damage = db.child('data').child(i).child('status').get().val()
        damages.append(damage)
        lat = db.child('data').child(i).child('lat').get().val()
        lng = db.child('data').child(i).child('lng').get().val()
@@ -146,18 +151,23 @@ def archives(request):
     
    timestamps = db.child('archive').shallow().get().val()
    list_time=[]
+   list_time_raw=[]
    for i in timestamps:
-       list_time.append(i)
+       fixdate = datetime.fromtimestamp(float(i)).strftime("%H:%m %D")
+       list_time_raw.append(i)
+       list_time.append(fixdate)
+       print(fixdate)
    
    list_time.sort(reverse=True)
+   
 
    damages = []
    lats = []
    lngs = []
    counts = []
    count = 1
-   for i in list_time:
-       damage = db.child('archive').child(i).child('detail').get().val()
+   for i in list_time_raw:
+       damage = db.child('archive').child(i).child('status').get().val()
        damages.append(damage)
        lat = db.child('archive').child(i).child('lat').get().val()
        lng = db.child('archive').child(i).child('lng').get().val()

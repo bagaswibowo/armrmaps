@@ -18,8 +18,10 @@
                     center: position
                 });
 
-                var markers = [];
-
+                var marker = new google.maps.Marker({
+                    position: null,
+                    map: map
+                });
                 var transitLayer = new google.maps.TransitLayer();
                 transitLayer.setMap(map);
 
@@ -29,7 +31,7 @@
                     var latlng = new google.maps.LatLng(coord.lat, coord.lng);
                     console.log(snap.val());
 
-                    if (coord.status == "warning") {
+                    if (coord.detail == "warning") {
                         var marker = new google.maps.Marker({
                             position: coord,
                             map: map,
@@ -43,15 +45,15 @@
                         });
                     }
                     attachSecretMessage(marker, coord.detail);
-                    markers.push(marker);
                 });
 
                 dbRefObject.on('child_changed', snap => {
+
                     coord = snap.val();
                     var latlng = new google.maps.LatLng(coord.lat, coord.lng);
                     console.log(snap.val());
 
-                    if (coord.status == "warning") {
+                    if (coord.detail == "warning") {
                         var marker = new google.maps.Marker({
                             position: coord,
                             map: map,
@@ -78,35 +80,6 @@
                     });
                     attachSecretMessage(marker, coord.detail);
                 });
-
-                var robot;
-                const dbRefObjectRobot = firebase.database().ref().child("robot");
-                dbRefObjectRobot.on('child_added', snap => {
-                    robotFirebase = snap.val();
-                    var robotLoc = new google.maps.LatLng(robotFirebase.lat, robotFirebase.lng);
-                    console.log("robot" + snap.val());
-
-                    var marker = new google.maps.Marker({
-                        position: robotFirebase,
-                        map: map,
-                        icon: "{% static 'img/robot.png' %}"
-                    })
-                    robot = marker;
-                })
-                console.log(robot);
-                dbRefObjectRobot.on('child_changed', snap => {
-                    robotFirebase = snap.val();
-                    var robotLoc = new google.maps.LatLng(robotFirebase.lat, robotFirebase.lng);
-                    console.log("robot" + snap.val());
-                    robot.setMap(null);
-                    var marker = new google.maps.Marker({
-                        position: robotFirebase,
-                        map: map,
-                        icon: "{% static 'img/robot.png' %}"
-                    })
-                    robot = marker;
-                })
-
             }
 
             function attachSecretMessage(marker, secretMessage) {
