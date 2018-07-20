@@ -3,18 +3,20 @@
 
     <div id="map">
         <script>
+            var robotLoc;
+
             function initMap() {
                 var coord = {
                     lat: null,
                     lng: null,
-                    detail: null
+                    status: null
                 };
                 var position = {
-                    lat: 7.7896909,
-                    lng: 110.3651141
+                    lat: -7.9537397,
+                    lng: 110.30692470000001
                 };
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 5,
+                    zoom: 10,
                     center: position
                 });
 
@@ -42,7 +44,7 @@
 
                         });
                     }
-                    attachSecretMessage(marker, coord.detail);
+                    attachSecretMessage(marker, coord.status);
                     markers.push(marker);
                 });
 
@@ -63,7 +65,7 @@
                             map: map
                         });
                     }
-                    attachSecretMessage(marker, coord.detail);
+                    attachSecretMessage(marker, coord.status);
                 });
                 console.log(coord);
 
@@ -76,7 +78,7 @@
                         position: coord,
                         map: map
                     });
-                    attachSecretMessage(marker, coord.detail);
+                    attachSecretMessage(marker, coord.status);
                 });
 
                 var robot;
@@ -106,6 +108,10 @@
                     })
                     robot = marker;
                 })
+
+
+
+
 
             }
 

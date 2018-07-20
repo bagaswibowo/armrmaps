@@ -12,14 +12,14 @@
         </tr>
     </thead>
     <tbody>
-        {% for counter,time,report,lat,lng in reports %}
+        {% comment %} {% for i in reports %}
         <tr>
-            <td> {{counter}}</td>
-            <td> {{time}} </td>
-            <td> {{lat}}. {{lng}}</td>
+            <td> {{reports[i].count}}</td>
+
+            <td> {{reports[i].damage}} </td>
+            <td> {{reports[i]}}. {{lng}}</td>
             <td> {{report}} </td>
-        </tr>
-        {% endfor %}
+        </tr> {% endfor %} {% endcomment %}
     </tbody>
 </table>
 {% endblock %}

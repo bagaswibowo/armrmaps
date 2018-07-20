@@ -19,7 +19,7 @@
             <td> {{lat}}. {{lng}}</td>
             <td> {{report}} </td>
             <td>
-                <button href="#" class="btn btn-danger"><i class="fa fa-map-marker-alt"></i></button>
+                <button href="#" class="btn btn-danger" onclick="location.href='https://www.google.com/maps/dir//{{lat}},{{lng}}/';"><i class="fa fa-map-marker-alt"></i></button>
                 <button href="#" class="btn btn-primary" onclick="archive('{{time}}')"><i class="fa fa-archive"></i></button>
             </td>
         </tr>

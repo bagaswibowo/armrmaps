@@ -118,7 +118,7 @@ def checkreport(request):
        fixdate = datetime.fromtimestamp(float(i)).strftime("%H:%m %D")
        list_time_raw.append(i)
        list_time.append(fixdate)
-       print(fixdate)
+       print(i)
    
    
    list_time.sort(reverse=True)
