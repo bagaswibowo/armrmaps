@@ -1,17 +1,13 @@
-{% if messag %}
-<script type="text/javascript">
-    alert('{{ messag }}');
-</script>
-{% endif %} {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
+    {% load static %}
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Autonomous Monitoring Railways Robot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Autonomous Monitoring Railways Robot</title>
 </head>
 
 <body>
@@ -29,8 +25,11 @@
         firebase.initializeApp(config);
     </script>
     <script src="{% static 'app.js' %}"></script>
-    <nav class="navbar sticky-top navbar-light bg-blue topbar">
-        <span class="responsive-text burger-menu" onclick="toggleNav()">&#9776; Autonomous Railways Monitoring Robot</span>
+    <nav class="navbar sticky-top navbar-dark bg-blue topbar">
+        <a class="navbar-brand" href="#" onclick="toggleNav()">
+            <span class="burger-menu hide-on-mobile">&#9776; Autonomous Railways Monitoring Robot</span>
+            <span class="burger-menu show-on-mobile">&#9776; ARM Robot</span>
+        </a>
         <div id="mySidenav" class="sidenav">
             <a style="float: right" href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
             <a href="{% url 'route' %}">Route</a>
@@ -43,13 +42,15 @@
     </nav>
     <div class="sidebar-container">
         <div id="mySidenavSpacer" class="sidebar-space"></div>
-        <div class="container-fluid">
-            <div class="container-fluid">
-                {% block content %} {% endblock %}
-            </div>
-        </div>
+        {% block content %} {% endblock %}
     </div>
-
+    {% if messag %}
+    <script type="text/javascript">
+        alert('{{ messag }}');
+    </script>
+    {% endif %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
 </body>
 
 </html>

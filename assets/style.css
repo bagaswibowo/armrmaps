@@ -1,3 +1,10 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
 .box {
     background: #3498db;
     color: aliceblue !important;
@@ -5,9 +12,8 @@
 }
 
 #map {
-    height: 800px;
-    width: 100%;
-    margin: 10px;
+    width: 98.8vw;
+    height: 100vh;
 }
 
 .bg-blue {
@@ -37,8 +43,8 @@
 }
 
 .sidebar-container {
-    display: flex;
     height: 100%;
+    width: 100%;
 }
 
 .sidenav a {
@@ -66,6 +72,18 @@
     font-size: 30px;
 }
 
+.hide-on-mobile {
+    display: block;
+}
+
+.show-on-mobile {
+    display: none;
+}
+
+.topbar {
+    padding: 10px;
+}
+
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
@@ -84,5 +102,13 @@
     }
     .sidenav {
         height: 100%;
+    }
+    
+    .hide-on-mobile {
+        display: none;
+    }
+    
+    .show-on-mobile {
+        display: block;
     }
 }
