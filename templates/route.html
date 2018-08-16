@@ -1,27 +1,38 @@
 {% extends 'base_layout.html' %} {% block content %}
-<h2>Routes</h2>
 <button style="position: fixed; z-index: 10000000; top: 70px; right: 50px;" class="btn btn-default" onClick="window.location.reload()"><i class="fa fa-redo" ></i></button>
-<table class="table">
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Route</th>
-            <th>Detail</th>
-            <th>Download for APM Planner</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td> 1 </td>
-            <td> 14-15 </td>
-            <td> Jalur 3 Stasiun Y - Stasiun Z</td>
-
-            <td>
-                <button href="#" class="btn btn-danger">Download</i></button>
-
-            </td>
-        </tr>
-
-    </tbody>
-</table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Routes</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr class="thead-light">
+                            <th>No</th>
+                            <th>Route</th>
+                            <th>Detail</th>
+                            <th>Download for APM Planner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"> 1 </th>
+                            <td> 14-15 </td>
+                            <td> Jalur 3 Stasiun Y - Stasiun Z</td>
+            
+                            <td>
+                                <button href="#" class="btn btn-danger">Download</i></button>
+                            </td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
