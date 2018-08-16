@@ -1,5 +1,7 @@
 {% extends 'base_layout.html' %} {% block content %}
-<button style="position: fixed; z-index: 10000000; top: 70px; right: 50px;" class="btn btn-default" onClick="window.location.reload()"><i class="fa fa-redo" ></i></button>
+<button style="position: fixed; z-index: 10000000; top: 70px; right: 50px;" class="btn btn-default" onClick="window.location.reload()">
+    <i class="fa fa-redo"></i>
+</button>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -20,15 +22,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for counter,time,report,lat,lng in reports %}
+                        {% for counter,time,report,lat,lng,list_time_raw in reports %}
                         <tr>
                             <th scope="row"> {{counter}} </th>
                             <td> {{time}} </td>
                             <td> {{lat}}. {{lng}}</td>
                             <td> {{report}} </td>
                             <td>
-                                <button href="#" class="btn btn-danger" onclick="location.href='https://www.google.com/maps/dir//{{lat}},{{lng}}/';"><i class="fa fa-map-marker-alt"></i></button>
-                                <button href="#" class="btn btn-primary" onclick="archive('{{time}}')"><i class="fa fa-archive"></i></button>
+                                <button href="#" class="btn btn-danger" onclick="location.href='https://www.google.com/maps/dir//{{lat}},{{lng}}/';">
+                                    <i class="fa fa-map-marker-alt"></i>
+                                </button>
+                                <button href="#" class="btn btn-primary" onclick="archive('{{list_time_raw}}')">
+                                    <i class="fa fa-archive"></i>
+                                </button>
                             </td>
                         </tr>
                         {% endfor %}

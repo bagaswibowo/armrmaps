@@ -138,7 +138,7 @@ def checkreport(request):
        counts.append(count)
        count = count+1
 
-   reports = zip(counts,list_time,damages,lats,lngs)
+   reports = zip(counts,list_time,damages,lats,lngs, list_time_raw)
    return render(request, "checkreport.html",{'reports':reports})
 
 def archives(request):
